@@ -25,17 +25,6 @@
             tools:text="University Name" />
 
         <!-- Add more TextViews or other UI elements as needed -->
-        <TextView
-            android:id="@+id/websiteTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/countryTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
