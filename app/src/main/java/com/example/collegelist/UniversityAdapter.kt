@@ -8,7 +8,7 @@ import com.example.collegelist.University
 
 class UniversityAdapter(private var universities: MutableList<University>) :
     RecyclerView.Adapter<UniversityAdapter.ViewHolder>() {
-    private var isExpandedList = MutableList(universities.size) { false }
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,6 +20,13 @@ class UniversityAdapter(private var universities: MutableList<University>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val university = universities[position]
         holder.universityNameTextView.text = university.name
+        holder.countryTextView.text = "Country: ${university.country}"
+        if (university.web_pages.isNotEmpty()) {
+            holder.webPageTextView.text = "Website: ${university.web_pages.toString()}"
+        } else {
+            holder.webPageTextView.text = "Website: N/A"
+        }
+
 
         // Bind other data as needed
     }
@@ -43,6 +50,8 @@ class UniversityAdapter(private var universities: MutableList<University>) :
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val universityNameTextView: TextView = itemView.findViewById(R.id.universityNameTextView)
+        val countryTextView: TextView = itemView.findViewById(R.id.countryTextView)
+        val webPageTextView: TextView = itemView.findViewById(R.id.webPageTextView)
         // Add references to other UI elements here
 
 
