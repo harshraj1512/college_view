@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener  {
 
     private lateinit var universityRecyclerView: RecyclerView
     private lateinit var adapter: UniversityAdapter
+    private var originalUniversities: MutableList<University> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener  {
                 val universities = UniversityApi.service.getAllUniversities()
 
                 withContext(Dispatchers.Main) {
+                    originalUniversities.addAll(universities)
                     adapter.addUniversities(universities)
                 }
             } catch (e: Exception) {
@@ -58,7 +60,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener  {
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         if (!query.isNullOrEmpty()) {
-            val filteredUniversities: MutableList<University> = adapter.list().filter { university ->
+            val filteredUniversities = originalUniversities.filter { university ->
                 university.name.contains(query, ignoreCase = true)
             }.toMutableList()
 
@@ -66,7 +68,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener  {
             adapter.updateUniversities(filteredUniversities)
         } else {
             // If the query is empty, show the original list
-            adapter.updateUniversities(adapter.list())
+            adapter.updateUniversities(originalUniversities)
         }
 
         // Return true to indicate that the query has been handled.
@@ -75,7 +77,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener  {
 
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        val filteredUniversities = adapter.list().filter { university ->
+        val filteredUniversities = originalUniversities.filter { university ->
             university.name.contains(newText?:" ", ignoreCase = true)
         }.toMutableList()
 

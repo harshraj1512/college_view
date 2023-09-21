@@ -22,7 +22,7 @@ class UniversityAdapter(private var universities: MutableList<University>) :
         holder.universityNameTextView.text = university.name
         holder.countryTextView.text = "Country: ${university.country}"
         if (university.web_pages.isNotEmpty()) {
-            holder.webPageTextView.text = "Website: ${university.web_pages.toString()}"
+            holder.webPageTextView.text = "Website: ${university.web_pages[0]}"
         } else {
             holder.webPageTextView.text = "Website: N/A"
         }
