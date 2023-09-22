@@ -12,6 +12,7 @@ import android.view.MenuItem
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -109,9 +110,10 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener  {
     }
 
     private fun refreshData() {
+
         // Manually trigger data refresh
-        adapter.updateUniversities(mutableListOf()) // Clear the list
         fetchAllUniversities()
+        Toast.makeText(this, "Data refreshed", Toast.LENGTH_SHORT).show()
     }
 
 
@@ -145,7 +147,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener  {
 
     override fun onQueryTextChange(newText: String?): Boolean {
         val filteredUniversities = originalUniversities.filter { university ->
-            university.name.contains(newText?:" ", ignoreCase = true)
+            university.name.contains(newText?:" ", ignoreCase = true) || university.country.contains(newText?:" ", ignoreCase = true)
         }.toMutableList()
 
         // Update the RecyclerView adapter with the filtered data

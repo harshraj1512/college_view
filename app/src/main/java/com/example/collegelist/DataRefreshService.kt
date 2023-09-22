@@ -4,6 +4,7 @@ import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.os.*
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -36,6 +37,7 @@ class DataRefreshService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        Log.d("DataRefreshService", "Service started")
         createNotificationChannel()
 
         // Create a PendingIntent to launch the MainActivity when the notification is tapped
@@ -62,12 +64,14 @@ class DataRefreshService : Service() {
         fetchAllUniversities()
 
         // Stop the service after refreshing data (you can adjust this as needed)
-        stopSelf()
+        //stopSelf()
 
         return START_NOT_STICKY
     }
 
     private fun fetchAllUniversities() {
+        Log.d("DataRefreshService", "Fetching universities data...")
+
         GlobalScope.launch(Dispatchers.IO) {
             try {
                 // Make the API request to fetch all universities

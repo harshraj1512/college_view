@@ -8,7 +8,7 @@
         android:id="@+id/universityRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="22dp"
+        android:background="@color/white"
         android:clipToPadding="false"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
@@ -22,33 +22,17 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
-        android:background="@color/blue_color"
+        android:background="@drawable/sss"
         android:elevation="4dp"
         android:titleTextColor="@android:color/white">
 
         <!-- Title on the left -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="start"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="15dp"
-                android:text="College View"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
 
         <SearchView
             android:id="@+id/searchView"
-            android:layout_width="255dp"
+            android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:card
             android:layout_marginStart="30dp"
             android:layout_marginEnd="26dp" />
 
