@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <base-config cleartextTrafficPermitted="true">
+        <!-- Allow cleartext (HTTP) traffic -->
         <trust-anchors>
-            <!-- Optionally trust user-added CAs while still pinning your service's CA certificates -->
-            <certificates src="user"/>
+            <!-- Add any custom trust anchors here if needed -->
         </trust-anchors>
     </base-config>
 </network-security-config>

@@ -4,8 +4,11 @@
     <!-- adding permissions on below line -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
+
+
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,6 +20,10 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.CollegeList"
         tools:targetApi="31">
+        <service
+            android:name=".DataRefreshService"
+            android:enabled="true"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

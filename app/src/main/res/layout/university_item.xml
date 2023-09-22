@@ -9,6 +9,8 @@
     app:cardCornerRadius="16dp"
     app:cardElevation="4dp">
 
+
+
     <!-- Add any other UI elements you want to display for each university -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,5 +42,9 @@
 
         <!-- Add more TextViews or other UI elements as needed -->
 
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>
+
+
+
