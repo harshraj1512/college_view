@@ -63,7 +63,7 @@ class DataRefreshService : Service() {
         // Perform data refresh here (fetch new data from the API)
         fetchAllUniversities()
 
-        // Stop the service after refreshing data (you can adjust this as needed)
+        // Stop the service after refreshing data (adjust this as needed)
         //stopSelf()
 
         return START_NOT_STICKY
@@ -78,9 +78,7 @@ class DataRefreshService : Service() {
                 val universities = UniversityApi.service.getAllUniversities()
 
                 // Handle the fetched data as needed
-                // For example, you can update your app's data or perform other actions
 
-                // Note: This is a background thread, so be careful when updating UI elements here.
 
             } catch (e: Exception) {
                 // Handle API request error
@@ -111,7 +109,7 @@ class DataRefreshService : Service() {
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("Refreshing Data")
             .setContentText("Updating data from the server...")
-            .setSmallIcon(android.R.drawable.ic_menu_rotate) // Replace with your icon resource
+            .setSmallIcon(android.R.drawable.ic_menu_rotate)
             .setContentIntent(pendingIntent)
             .build()
     }

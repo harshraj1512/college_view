@@ -39,8 +39,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //val toolbar = findViewById<Toolbar>(R.id.toolbar)
-       // setSupportActionBar(toolbar)
+
 
         universityRecyclerView = findViewById(R.id.universityRecyclerView)
 

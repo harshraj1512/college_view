@@ -11,7 +11,7 @@ interface UniversityApiService {
 }
 
 object UniversityApi {
-    private const val BASE_URL = "http://universities.hipolabs.com/search/" // Replace with your API base URL
+    private const val BASE_URL = "http://universities.hipolabs.com/search/"
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
